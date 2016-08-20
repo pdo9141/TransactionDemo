@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{FD9BDAAA-45F2-40EB-861F-1E23D24F14C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETTransactions", "NETTransactions\NETTransactions.csproj", "{AA7598A7-8BFD-46B1-95FB-15BB9E2C3CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM", "VRM\VRM.csproj", "{D0254ACF-B78A-43C4-9C37-DE4A9CD5DCCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA7598A7-8BFD-46B1-95FB-15BB9E2C3CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA7598A7-8BFD-46B1-95FB-15BB9E2C3CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA7598A7-8BFD-46B1-95FB-15BB9E2C3CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA7598A7-8BFD-46B1-95FB-15BB9E2C3CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0254ACF-B78A-43C4-9C37-DE4A9CD5DCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0254ACF-B78A-43C4-9C37-DE4A9CD5DCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0254ACF-B78A-43C4-9C37-DE4A9CD5DCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0254ACF-B78A-43C4-9C37-DE4A9CD5DCCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
