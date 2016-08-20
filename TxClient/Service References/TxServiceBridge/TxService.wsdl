@@ -15,6 +15,20 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ITxService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ITxService_TxOperation_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsat:ATAssertion wsp:Optional="true" wsp1:Optional="true" xmlns:wsat="http://schemas.xmlsoap.org/ws/2004/10/wsat" xmlns:wsp1="http://schemas.xmlsoap.org/ws/2002/12/policy" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/TxService/TxService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -86,11 +100,49 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_ITxService" type="tns:ITxService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ITxService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://tempuri.org/ITxService/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap12:operation soapAction="http://tempuri.org/ITxService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TxOperation">
+      <wsp:PolicyReference URI="#WSHttpBinding_ITxService_TxOperation_policy" />
+      <soap12:operation soapAction="http://tempuri.org/ITxService/TxOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="TxService">
     <wsdl:port name="NetTcpBinding_ITxService" binding="tns:NetTcpBinding_ITxService">
       <soap12:address location="net.tcp://waytoogonzo/TxService/TxService.svc" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://waytoogonzo/TxService/TxService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_ITxService" binding="tns:WSHttpBinding_ITxService">
+      <soap12:address location="http://localhost/TxService/TxService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost/TxService/TxService.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

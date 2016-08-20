@@ -33,18 +33,22 @@ namespace TxService
             NetTcpBinding tcp = (NetTcpBinding)OperationContext.Current.Host.Description.Endpoints[0].Binding;
             TransactionProtocol pro = tcp.TransactionProtocol;
 
+            WSHttpBinding ws = (WSHttpBinding)OperationContext.Current.Host.Description.Endpoints[1].Binding;
+
             TransactionInformation info = Transaction.Current.TransactionInformation;
             string localId = String.Empty;
             Guid distributedId = Guid.Empty;
             localId = info.LocalIdentifier;
             distributedId = info.DistributedIdentifier;
 
+            /*
             DBOperation1();
 
             localId = info.LocalIdentifier;
             distributedId = info.DistributedIdentifier;
+            */
 
-            DBOperation2();
+            DBOperation2();            
 
             localId = info.LocalIdentifier;
             distributedId = info.DistributedIdentifier;
