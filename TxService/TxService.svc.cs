@@ -30,6 +30,9 @@ namespace TxService
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
         public bool TxOperation()
         {
+            NetTcpBinding tcp = (NetTcpBinding)OperationContext.Current.Host.Description.Endpoints[0].Binding;
+            TransactionProtocol pro = tcp.TransactionProtocol;
+
             TransactionInformation info = Transaction.Current.TransactionInformation;
             string localId = String.Empty;
             Guid distributedId = Guid.Empty;
